@@ -10,7 +10,7 @@ const app = express();
 app.get('/', (req, res) => {
   // req contains information about the incoming request.
   // res lets us send a response back to the browser.
-  res.send('Hello, IS117! Your web server is working fantastic.');
+  res.send('Hello, IS117! Your web server is working.');
 });
 
 // Each path can have its own response. Try /about in your browser.

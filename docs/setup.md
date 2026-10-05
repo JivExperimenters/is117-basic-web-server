@@ -89,6 +89,10 @@ npm start
 
 The server in Parts 3–6 stays running until you press **Ctrl+C** in its terminal. Stop it before switching branches. Treat the reference folder as a place to read and run examples; make lesson exercises in your student folder. If Git refuses a switch because you edited reference files, save a copy of any changes you want to keep and ask your instructor for help rather than deleting unfamiliar files.
 
+## Keep a learning record
+
+Read the [assignment checklist](assignment.md). Create `learning-log.md` in your student project to record each part’s prediction, actual result, and explanation before restoring practice changes. Your reference clone remains a separate comparison copy.
+
 ## Ready check
 
 You are ready when you can open a terminal, run `node --version` and `npm --version`, and open a plain-text editor. Git is optional for the build-from-scratch path. Start with [Part 1](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/01-node-and-terminal.md), or return to the [course home](../README.md).

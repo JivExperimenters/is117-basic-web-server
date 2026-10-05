@@ -27,8 +27,10 @@ Three names do different jobs:
 A **package** is reusable code written for other programs to use. A **dependency** is a package your project needs. In the terminal, run:
 
 ```bash
-npm install express
+npm install express@5
 ```
+
+`@5` selects Express major version 5, which this lesson uses for the startup error callback. npm chooses a compatible minor/patch release and records the installed version in the lockfile. Your version and package counts can differ from the reference without changing the expected responses.
 
 npm prints installation information and eventually returns the command prompt. The package count and version numbers can differ. Check your editor: `package.json` now has Express under `dependencies`, npm created or updated `package-lock.json`, and `node_modules` contains installed packages. Express also needs other packages, so that folder contains more than one name. You write your code in `index.js`, not in `node_modules`.
 
@@ -43,7 +45,7 @@ const app = express();
 
 // Answer a GET request for the home page.
 app.get('/', (req, res) => {
-  res.send('Hello, IS117! Your web server is working fantastic.');
+  res.send('Hello, IS117! Your web server is working.');
 });
 
 // Listen on this computer at port 3000.
@@ -104,7 +106,7 @@ http://localhost:3000/
 **localhost** means your own computer. `http://` selects HTTP; `:3000` selects your server's port; `/` selects the route. Expect:
 
 ```text
-Hello, IS117! Your web server is working fantastic.
+Hello, IS117! Your web server is working.
 ```
 
 The program stays alive to answer more requests. The startup messages appear once; refreshing the page calls the route again without printing those messages again.
@@ -118,5 +120,9 @@ Explain aloud: the browser requested `/`, Express called the registered function
 You have completed this part when you can start and stop the server, see the greeting, and point to the line that sends it. An unfamiliar error belongs in the [troubleshooting guide](../troubleshooting.md).
 
 For reference, the official [Express application example](https://expressjs.com/en/api/) uses the same require, route, and listen pattern; [Node's CommonJS documentation](https://nodejs.org/api/modules.html) explains `require`.
+
+## Save your checkpoint evidence
+
+Record the home-page body and startup message. Explain why the prompt stays busy and why edits require a restart. Keep the original greeting in `index.js`; Express should be listed under `dependencies`. See the [assignment checklist](../assignment.md) for the full learning record.
 
 [Continue to Part 4: Routes and status codes](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/04-routes-and-status.md)

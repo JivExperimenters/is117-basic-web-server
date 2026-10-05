@@ -12,6 +12,8 @@ Build your own project in a folder named `is117-web-server`. The worked branches
 
 If you want to run the reference code locally, use a separate folder named `is117-reference`. [Setup](docs/setup.md) and [branch navigation](docs/branches.md) explain the difference between the two folders.
 
+Read the [assignment checklist](docs/assignment.md) before starting. Build each part in your own project and keep a short learning record; running a completed reference branch is a comparison step.
+
 ## The six parts
 
 | Part and lesson | What you will learn | Worked branch | Checkpoint |
@@ -61,9 +63,9 @@ You should see **3 passing tests**, followed by `Server running at http://localh
 
 | Address | Expected response |
 | --- | --- |
-| `http://localhost:3000/` | `Hello, IS117! Your web server is working fantastic.` |
+| `http://localhost:3000/` | `Hello, IS117! Your web server is working.` |
 | `http://localhost:3000/about` | `A web server receives a request and sends a response.` |
-| `http://localhost:3000/missing` | `Page not found.` with status `404` |
+| `http://localhost:3000/missing-page` | `Page not found.` with status `404` |
 
 Press **Ctrl+C** in the server terminal to stop it. The tests start and stop their own server; they do not require a separately running `npm start` process.
 
@@ -77,12 +79,14 @@ Press **Ctrl+C** in the server terminal to stop it. The tests start and stop the
 
 ## For the instructor
 
+The [student walkthrough notes](note.md) record the observed results and the reasons for the instructional changes.
+
 The organization follows the [six-part IS218 example](https://github.com/kaw393939/is218-command-factory-statistics), with the prerequisite level reset to a student's first program. There are no additional application frameworks or testing packages.
 
 From `main`, export the six worked snapshots without changing Git:
 
 ```bash
-node tools/build-lessons.js --output /private/tmp/is117-lessons
+node tools/build-lessons.js --output ../is117-lessons
 ```
 
 Use a new output folder. To verify the documents, actual lesson branch contents, sequential ancestry, programs, and tests:

@@ -18,7 +18,7 @@ A useful test starts with a clear expectation. Recall these three requests:
 
 | Request path | Expected status | Expected response body |
 | --- | --- | --- |
-| `/` | `200` | `Hello, IS117! Your web server is working fantastic.` |
+| `/` | `200` | `Hello, IS117! Your web server is working.` |
 | `/about` | `200` | `A web server receives a request and sends a response.` |
 | `/missing-page` | `404` | `Page not found.` |
 
@@ -104,7 +104,7 @@ Read a failure report from the test name to the assertion, then compare **Expect
 Restore the original response exactly:
 
 ```javascript
-res.send('Hello, IS117! Your web server is working fantastic.');
+res.send('Hello, IS117! Your web server is working.');
 ```
 
 Save and run `npm test`. Confirm all three tests pass again.
@@ -134,5 +134,9 @@ This exercise is an optional extension. The reference branch keeps the original 
 You started with a JavaScript file that Node could run. You used npm to describe the project and install packages. Express turned your program into a server that listens for requests, selects routes, and sends responses. Jest checked those responses automatically.
 
 Before you finish, explain the trip from a client request to a server response, why the server keeps running after `npm start`, why Jest is a development dependency, and how a failed assertion helped you find a mistake.
+
+## Save your checkpoint evidence
+
+Record the three-test passing summary and the Expected/Received values from both deliberate server bugs. Restore the server and rerun before submitting. Three passing tests complete the required work; the optional `/hello` extension gives four. Use the [final hand-in checklist](../assignment.md#final-hand-in). See the [assignment checklist](../assignment.md) for the full learning record.
 
 [Return to the course home](../../README.md)

@@ -100,7 +100,7 @@ git diff origin/learn/03-first-server..origin/learn/04-routes-and-status -- inde
 
 ## For maintainers
 
-`main` holds the canonical final `index.js`, test file, full lessons, and small maintenance tools. Export all six complete branch trees with `node tools/build-lessons.js --output /private/tmp/is117-lessons`. This creates new folders; it does not change Git.
+`main` holds the canonical final `index.js`, test file, full lessons, and small maintenance tools. Export all six complete branch trees with `node tools/build-lessons.js --output ../is117-lessons`. This creates new folders; it does not change Git.
 
 Publish those trees on the six named branches in order. Part 2's commit should have Part 1's commit as its direct parent, and so on through Part 6. Each branch contains only its current and earlier lesson chapters; forward links go to the full textbook on `main`.
 

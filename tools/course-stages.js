@@ -44,6 +44,8 @@ This is the **completed worked example** for Part ${part.number} of IS117's firs
 
 ## Read, then build
 
+Follow the [assignment checklist](docs/assignment.md) and record this part’s prediction, result, and explanation in your student project. Running this reference alone is a comparison step.
+
 Start with [this part's lesson](${part.lesson}). It explains the commands, code, expected output, and practice steps. Build the lesson in your own \`is117-web-server\` folder; use this separate \`is117-reference\` clone to compare completed work.
 
 ${part.number === 1 ? 'Begin with Node.js, npm, an editor, and a terminal. This branch has no npm project or web server yet.' : `Start your own work from Part ${part.number - 1}. This reference branch already includes earlier parts and this part's completed changes; do not run \`npm init\` again in the reference clone.`}
@@ -58,7 +60,7 @@ ${commands.join('\n')}
 
 ${part.number >= 2 ? '`npm ci` installs the versions in this branch\'s lockfile. Use it in the reference clone after switching branches; use `npm install` when building your own project and adding packages.\n\n' : ''}${result}
 ${testNote}
-${part.number >= 4 ? 'Also visit `/about` for the server explanation and `/missing` for `Page not found.` with status `404`.\n' : ''}
+${part.number >= 4 ? 'Also visit `/about` for the server explanation and `/missing-page` for `Page not found.` with status `404`.\n' : ''}
 ## Read the parts completed so far
 
 ${priorLessons}
@@ -76,7 +78,7 @@ function stageFiles(part) {
   // Keep generated packages ignored even when revisiting Part 1 after Part 6.
   // Students create their own .gitignore as part of the Part 2 lesson.
   files['.gitignore'] = read('.gitignore');
-  for (const guide of ['setup', 'branches', 'glossary', 'troubleshooting']) {
+  for (const guide of ['setup', 'branches', 'glossary', 'troubleshooting', 'assignment']) {
     files[`docs/${guide}.md`] = read(`docs/${guide}.md`);
   }
   for (const entry of PARTS.filter((entry) => entry.number <= part.number)) {

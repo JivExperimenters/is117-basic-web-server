@@ -32,6 +32,8 @@ An **object** groups related settings between braces, `{` and `}`. Each setting 
 "name": "is117-web-server"
 ```
 
+The JSON examples in this lesson are **fragments**, not whole files. Keep the outer braces and other settings in your generated `package.json`; use the npm commands below to make the changes.
+
 The key and its text value use double quotes. JSON uses commas between settings and does not allow comments. Do not add `//` explanations inside `package.json`.
 
 You may see slightly different fields depending on your npm version and settings. Read these common ones:
@@ -142,5 +144,9 @@ For an independent variation, add a second print instruction with a message of y
 ## Completion check
 
 You have `index.js`, `package.json`, `package-lock.json`, and `.gitignore`. `npm start` prints your original greeting and exits. You can identify a script and explain why the lockfile is kept. Express and Jest have not been installed yet.
+
+## Save your checkpoint evidence
+
+Record `npm start` output and explain how it uses `scripts.start`. Your project should contain `index.js`, `package.json`, `package-lock.json`, `.gitignore`, and `learning-log.md`; `node_modules` may still be absent. See the [assignment checklist](../assignment.md) for the full learning record.
 
 [Previous: Part 1](01-node-and-terminal.md) · [Course home](../../README.md) · [Next: Part 3 — Your first web server](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/03-first-server.md)

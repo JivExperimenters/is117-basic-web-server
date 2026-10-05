@@ -25,7 +25,7 @@ const app = express();
 
 // Answer a GET request for the home page.
 app.get('/', (req, res) => {
-  res.send('Hello, IS117! Your web server is working fantastic.');
+  res.send('Hello, IS117! Your web server is working.');
 });
 
 // A second path gets a different response.
@@ -65,7 +65,7 @@ The closing `});` ends that callback and the registration call. The port and lis
 
 Express checks these rules in the order you register them. In our program, a matching route sends the response and ends that request's handling. A request for `/about` passes the home route, matches the about route, and receives its message.
 
-For `/missing`, neither GET route matches. Handling reaches the final `app.use` function, which sends status 404 and our missing-page message. If you put that function above the routes, it would answer first, including for `/` and `/about`. Those later routes would not get a chance to send their responses.
+For `/missing-page`, neither GET route matches. This is an intentionally unknown path, not a route you need to add. Another unmatched path, such as `/something-else`, reaches the same handler. Handling reaches the final `app.use` function, which sends status 404 and our missing-page message. If you put that function above the routes, it would answer first, including for `/` and `/about`. Those later routes would not get a chance to send their responses.
 
 We deliberately keep the catch-all response last. This is also why an additional route must go above it. Read more about registration order in the official [Express application API](https://expressjs.com/en/5x/api/application/).
 
@@ -75,9 +75,9 @@ Predict the message for each path in the table before starting the server:
 
 | Browser address | Expected body | Expected status |
 | --- | --- | --- |
-| `http://localhost:3000/` | `Hello, IS117! Your web server is working fantastic.` | 200 |
+| `http://localhost:3000/` | `Hello, IS117! Your web server is working.` | 200 |
 | `http://localhost:3000/about` | `A web server receives a request and sends a response.` | 200 |
-| `http://localhost:3000/missing` | `Page not found.` | 404 |
+| `http://localhost:3000/missing-page` | `Page not found.` | 404 |
 
 Now run:
 
@@ -102,7 +102,7 @@ Your browser includes **developer tools**, panels that show what happens when a 
 2. Choose the **Network** tab. Open it before refreshing, because it records requests while open.
 3. Visit `/about` or refresh it. Select the request named `about`, usually marked as a document.
 4. Find its status code in **Headers**. Expect `200` on this fresh load. The **Response** tab shows the about message.
-5. Visit `/missing`, select that document request, and find `404` and `Page not found.`.
+5. Visit `/missing-page`, select that document request, and find `404` and `Page not found.`.
 
 **Headers** are information accompanying the body. One header, `Content-Type`, tells the client the content format. Express sends a string with a `text/html` content type by default, even though our simple strings contain only ordinary text. The browser displays that text. See the official [Express response API](https://expressjs.com/en/5x/api/response/#res-send) for this behavior.
 
@@ -127,5 +127,9 @@ Without copying another full example, add a GET route for `/hello` above the fin
 Save, stop the server with **Ctrl+C**, run `npm start` again, and visit `http://localhost:3000/hello`. Verify your greeting and status 200. Then remove this practice route, save, and restart to return to the shared example before Part 5.
 
 You have completed this part when all three original paths behave as predicted and you can explain why the missing-page function must come last.
+
+## Save your checkpoint evidence
+
+Record the body and HTTP status for `/`, `/about`, and `/missing-page`. Explain why the final handler comes last. Record your practice `/hello` result, then remove that route before Part 5. See the [assignment checklist](../assignment.md) for the full learning record.
 
 [Continue to Part 5: Your first test](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/05-first-test.md)

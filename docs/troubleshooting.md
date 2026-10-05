@@ -17,6 +17,12 @@ npm --version
 
 Each should print a version number. Do not type a sample output such as `v24...` as a command. npm normally comes with the Node installer. See [npm's installation instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) if the two commands still disagree.
 
+## npm prints warnings during installation
+
+A line marked `npm warn` is different from `npm error`. You may see warnings about a dependency being deprecated, security audit results, or install-script settings. Counts and messages can vary by npm version. Wait for the command prompt to return, then run the lesson's checkpoint command. A warning alone does not demonstrate that installation failed or that the checkpoint is correct.
+
+If installation ends with an error or the checkpoint does not work, save the command and full error text and ask your instructor. Do not approve unfamiliar install scripts or run `npm audit fix --force` just to make your terminal match a screenshot. The reference uses `npm ci` to reproduce its lockfile; the student path adds Express 5 and Jest 30 at their respective lessons.
+
 ## Windows PowerShell says `npm.ps1` cannot run
 
 If Node is installed but PowerShell blocks the `npm.ps1` script, try the Windows command wrapper:
@@ -51,7 +57,7 @@ Being present in `package.json` does not mean a package is installed on this com
 npm install
 ```
 
-This recreates `node_modules` using the project's package settings. In your from-scratch exercise, Express is first added in Part 3 with `npm install express`; Jest is first added in Part 5 with `npm install --save-dev jest`. Do not expect either on an earlier checkpoint.
+This recreates `node_modules` using the project's package settings. In your from-scratch exercise, Express is first added in Part 3 with `npm install express@5`; Jest is first added in Part 5 with `npm install --save-dev jest@30`. Do not expect either on an earlier checkpoint.
 
 If you specifically omitted development dependencies, Jest was omitted too. Run `npm install --include=dev` in the final project to include it.
 
@@ -114,7 +120,7 @@ If `/hello` still returns 404, put that route above the final `app.use` handler 
 
 ## Jest reports different `Expected` and `Received` values
 
-`Expected` is what the assertion asked for. `Received` is what the server actually returned. Compare them carefully: spelling, punctuation, capitalization, and spaces matter when checking exact strings. The shared home response includes `working fantastic.`.
+`Expected` is what the assertion asked for. `Received` is what the server actually returned. Compare them carefully: spelling, punctuation, capitalization, and spaces matter when checking exact strings. The shared home response includes `Your web server is working.`.
 
 If you changed a response as an exercise, the original test can correctly fail. Restore the shared example or update the test only when your intended requirement changed. Changing an expected value simply to turn a result green does not fix an incorrect server.
 
