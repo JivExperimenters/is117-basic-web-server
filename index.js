@@ -10,7 +10,7 @@ const app = express();
 app.get('/', (req, res) => {
   // req contains information about the incoming request.
   // res lets us send a response back to the browser.
-  res.send('Hello, IS117! Your web server is working.');
+  res.send('Hello, IS117! Your web server is working fantastic.');
 });
 
 // Each path can have its own response. Try /about in your browser.
@@ -33,7 +33,13 @@ if (require.main === module) {
   // localhost means this computer. Keep this program running
   // while visiting http://localhost:3000 in your browser.
   const port = 3000;
-  app.listen(port, () => {
+  app.listen(port, (error) => {
+    // If the port is already in use, show the error instead of a success message.
+    if (error) {
+      console.error(error.message);
+      process.exitCode = 1;
+      return;
+    }
     console.log(`Server running at http://localhost:${port}`);
     console.log('Press Ctrl+C in this terminal to stop the server.');
   });

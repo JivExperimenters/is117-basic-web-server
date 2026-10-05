@@ -1,0 +1,157 @@
+# Part 5: Check the Home Page with Jest
+
+[Course home](../../README.md) · [Setup help](../setup.md) · [Branch guide](../branches.md) · [Glossary](../glossary.md)
+
+Previous: [Part 4 — Routes and status codes](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/04-routes-and-status.md) · Next: [Part 6 — Complete the tests](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/06-complete-tests.md)
+
+## What you will build
+
+You already have three possible responses: the home page, the about page, and a missing page. Until now, you have checked them by opening a browser. In this part, a program will make a request and check the answer for you.
+
+An **automated test** is code that checks whether other code behaves as expected. **Jest** is the package that runs our tests and reports the results. Our first test asks two questions: does the home page return status `200`, and does it send the correct text?
+
+Work in your own `is117-web-server` folder. The branch `learn/05-first-test` is the completed reference for this part. If you use a separate `is117-reference` clone, follow the [branch guide](../branches.md) to view it without replacing your own work.
+
+## Checkpoint 1: Add a testing tool
+
+Stop your running server with **Ctrl+C**. In the terminal, check that you are inside your project folder, then run:
+
+```bash
+npm install --save-dev jest
+npm pkg set 'scripts.test=jest --runInBand'
+```
+
+The first command installs Jest and records it in the `devDependencies` section of `package.json`. A **development dependency** helps us build or check the project. Express remains in `dependencies`, because our running web server needs Express.
+
+The second command adds a script named `test`. Just as `npm start` runs our start script, `npm test` will run our test script. The `--runInBand` option tells Jest to run the tests in one process. This keeps this small exercise straightforward.
+
+Open `package.json`. Its scripts should now include:
+
+```json
+"scripts": {
+  "start": "node index.js",
+  "test": "jest --runInBand"
+}
+```
+
+This is a section of the file, not a replacement for the whole file. Keep its other settings. npm also updates `package-lock.json`, which records installed package versions.
+
+**Check:** Can you find Express under `dependencies` and Jest under `devDependencies`?
+
+## Checkpoint 2: Make the app available to the tests
+
+Our `index.js` currently starts listening whenever Node runs the file. The tests also need to use this app, but they will choose their own port and stop their own server.
+
+A **module** is a JavaScript file whose code another file can use. In this project, `require(...)` loads a module, and `module.exports` makes a value available to the file that loads it.
+
+In `index.js`, keep your Express setup, both routes, and the missing-page handler. Replace the existing bottom section that declares `port` and calls `app.listen(...)` with this:
+
+```javascript
+// Start listening only when we run this file directly with Node.
+// When the tests import this file, they start their own test server.
+if (require.main === module) {
+  // A port identifies which program should receive a connection.
+  // localhost means this computer. Keep this program running
+  // while visiting http://localhost:3000 in your browser.
+  const port = 3000;
+  app.listen(port, (error) => {
+    // If the port is already in use, show the error instead of a success message.
+    if (error) {
+      console.error(error.message);
+      process.exitCode = 1;
+      return;
+    }
+    console.log(`Server running at http://localhost:${port}`);
+    console.log('Press Ctrl+C in this terminal to stop the server.');
+  });
+}
+
+// Exporting lets the test file use the same app.
+module.exports = app;
+```
+
+An `if` statement runs its block only when its condition is true. The `===` operator checks equality. Here, `require.main === module` asks whether this is the file Node started directly.
+
+With `node index.js`, the answer is yes, so the app listens on port `3000`. When a test loads `index.js`, the answer is no, so this block does not start a server. The last line still makes the app available to the tests. Keep just one listening block; do not leave the old one underneath it.
+
+**Check:** Run `npm start`, visit the home page, and stop the server with **Ctrl+C**. It should still work as before.
+
+## Checkpoint 3: Create one test
+
+In your editor, create a folder named `tests` inside your project. Inside that folder, create `server.test.js`. The `.test.js` ending tells Jest that this file contains tests.
+
+Copy this complete file. The setup and cleanup are supplied scaffolding: code that prepares our exercise. You can use it before learning to write every part yourself.
+
+```javascript
+const app = require('../index');
+
+let server;
+let baseUrl;
+
+beforeAll(async () => {
+  // Port 0 lets the computer choose a free port for these tests.
+  await new Promise((resolve, reject) => {
+    server = app.listen(0, '127.0.0.1');
+    server.once('listening', resolve);
+    server.once('error', reject);
+  });
+  baseUrl = `http://127.0.0.1:${server.address().port}`;
+});
+
+afterAll(async () => {
+  // Close the server and its connections when the tests finish.
+  if (server && server.listening) {
+    await new Promise((resolve, reject) => {
+      server.close((error) => (error ? reject(error) : resolve()));
+      server.closeAllConnections();
+    });
+  }
+});
+
+test('the home page sends a successful response', async () => {
+  // fetch sends a request, like visiting a page in a browser.
+  const response = await fetch(`${baseUrl}/`);
+
+  // Check both the status number and the text sent back by the server.
+  expect(response.status).toBe(200);
+  expect(await response.text()).toBe('Hello, IS117! Your web server is working fantastic.');
+});
+```
+
+### Read the file in three sections
+
+**Load the app.** `require('../index')` starts from the test file's folder. The `..` means “go up one folder”; `index` names `index.js`. Node can supply the `.js` ending. `let` declares a variable whose value we can set later. We need to keep the server and its address available during testing.
+
+**Prepare and clean up.** Jest runs `beforeAll` before the tests and `afterAll` after them. Network operations take time. `async` marks a function that can wait, and `await` waits for an operation to finish before continuing.
+
+A **Promise** represents work that will finish later. `new Promise(...)` creates one: `resolve` signals success, and `reject` signals failure. Our setup waits for the server's `listening` event. `once` registers a function to run the first time an event occurs. If starting the server produces an `error`, setup fails instead of pretending it worked.
+
+Port `0` asks the computer to choose an available port; it does not mean the test visits port zero. `server.address().port` retrieves the chosen number. `127.0.0.1` refers to this computer, like `localhost`. The backticks and `${...}` insert that number into the address. The browser server still uses port `3000` when you run `npm start`.
+
+Cleanup checks `server && server.listening`: both values must indicate that there is a running server. `server.close(...)` stops it, and `closeAllConnections()` closes remaining connections. In the callback, `error ? reject(error) : resolve()` means “report a failure if there is an error; otherwise finish successfully.” This cleanup lets Jest exit instead of leaving a server running.
+
+**Check the response.** `test(...)` gives our check a readable name and a function to run. `fetch(...)` sends a GET request. We wait for the response, then check its status. `response.text()` reads the response body, and also needs `await`. Without waiting, we might check unfinished work.
+
+An **assertion** is a claim a test checks. `expect(value).toBe(expectedValue)` checks that the values match. These two assertions require status `200` and the exact home-page text, including capitalization, spaces, and punctuation.
+
+## Checkpoint 4: Run it
+
+Save both files. Run:
+
+```bash
+npm test
+```
+
+You do **not** need to run `npm start` first. Test setup starts a real HTTP server and cleanup stops it. Expect a passing summary with **one test suite** and **one test**. A test suite is a group of tests; here it is our one test file.
+
+If Jest says a value differs, compare its **Expected** and **Received** values with your home-page response. If it cannot find `../index`, check that the file is exactly `tests/server.test.js`. If `fetch` is unavailable, revisit [setup](../setup.md): this course uses Node.js 22 or newer.
+
+## Try a small variation
+
+First, cover the two assertion lines and complete this pattern on paper: `expect(response.status).toBe(___)`. Choose the status a successful home page should return, then compare it with your saved test.
+
+Next, temporarily change only the expected status in the test from `200` to `404`. Predict the result and run `npm test`. The test should fail: your server still correctly returns `200`, but this test now asks for the wrong result. This confirms that Jest is running your assertion. Restore `200`, save, and confirm one passing test before continuing. Part 6 will use correct tests to catch mistakes in the server itself.
+
+**Before moving on:** Explain which command starts your browser server, which runs your test, and why the test waits before checking the response.
+
+[Continue to Part 6](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/06-complete-tests.md)

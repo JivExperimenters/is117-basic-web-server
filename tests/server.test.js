@@ -29,7 +29,7 @@ test('the home page sends a successful response', async () => {
 
   // Check both the status number and the text sent back by the server.
   expect(response.status).toBe(200);
-  expect(await response.text()).toBe('Hello, IS117! Your web server is working.');
+  expect(await response.text()).toBe('Hello, IS117! Your web server is working fantastic.');
 });
 
 test('the about page explains what a web server does', async () => {
