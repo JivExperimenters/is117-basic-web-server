@@ -44,8 +44,6 @@ This is the **completed worked example** for Part ${part.number} of IS117's firs
 
 ## Read, then build
 
-Follow the [assignment checklist](docs/assignment.md) and record this part’s prediction, result, and explanation in your student project. Running this reference alone is a comparison step.
-
 Start with [this part's lesson](${part.lesson}). It explains the commands, code, expected output, and practice steps. Build the lesson in your own \`is117-web-server\` folder; use this separate \`is117-reference\` clone to compare completed work.
 
 ${part.number === 1 ? 'Begin with Node.js, npm, an editor, and a terminal. This branch has no npm project or web server yet.' : `Start your own work from Part ${part.number - 1}. This reference branch already includes earlier parts and this part's completed changes; do not run \`npm init\` again in the reference clone.`}

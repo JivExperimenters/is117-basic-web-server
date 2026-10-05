@@ -27,7 +27,7 @@ node --version
 npm --version
 ```
 
-Each command should print a version number. Your Node.js number might look like `v24.21.0`; the exact minor numbers and npm version can differ. The important check is that Node.js is a supported version 22 or newer and both commands work. If the terminal says a command was not found, finish the Node.js installation and reopen the terminal before continuing.
+Each command should print a version number. Your Node.js number might look like `v24.20.0`; the exact minor numbers and npm version can differ. The important check is that Node.js is a supported version 22 or newer and both commands work. If the terminal says a command was not found, finish the Node.js installation and reopen the terminal before continuing.
 
 If Windows PowerShell reports that `npm.ps1` cannot run because scripts are disabled, use `npm.cmd --version`. You can use `npm.cmd` wherever the lessons say `npm`. You do not need to change your computer's script policy for this course.
 
@@ -88,10 +88,6 @@ npm start
 `npm ci` installs the exact package versions listed in that branch's `package-lock.json`. Part 1 has no npm project yet, so it does not use `npm ci`. Parts 1–4 have no Jest tests yet, so they do not use `npm test`.
 
 The server in Parts 3–6 stays running until you press **Ctrl+C** in its terminal. Stop it before switching branches. Treat the reference folder as a place to read and run examples; make lesson exercises in your student folder. If Git refuses a switch because you edited reference files, save a copy of any changes you want to keep and ask your instructor for help rather than deleting unfamiliar files.
-
-## Keep a learning record
-
-Read the [assignment checklist](assignment.md). Create `learning-log.md` in your student project to record each part’s prediction, actual result, and explanation before restoring practice changes. Your reference clone remains a separate comparison copy.
 
 ## Ready check
 

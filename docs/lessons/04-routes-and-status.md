@@ -128,8 +128,4 @@ Save, stop the server with **Ctrl+C**, run `npm start` again, and visit `http://
 
 You have completed this part when all three original paths behave as predicted and you can explain why the missing-page function must come last.
 
-## Save your checkpoint evidence
-
-Record the body and HTTP status for `/`, `/about`, and `/missing-page`. Explain why the final handler comes last. Record your practice `/hello` result, then remove that route before Part 5. See the [assignment checklist](../assignment.md) for the full learning record.
-
 [Continue to Part 5: Your first test](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/05-first-test.md)

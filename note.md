@@ -66,9 +66,11 @@ The separate folders, save/restart reminders, status/body distinction, exact ass
 
 ## Validation and resolution
 
+The first pass below added a learning record. The user asked to resolve the issues without adding student work; the final resolution at the end removes that requirement.
+
 Before edits, `node tools/verify-course.js --remote --install` passed all six fetched branches, including fresh locked installs. The independent student walkthrough also exercised the from-scratch path, deliberate failures, restoration, and optional fourth test. The final validation results and file mapping will be added after the improvements are complete.
 
-### Applied improvements
+### First-pass improvements (superseded where simplified below)
 
 | Notes | Changed files |
 | --- | --- |
@@ -80,7 +82,7 @@ Before edits, `node tools/verify-course.js --remote --install` passed all six fe
 | N9 | [Troubleshooting](docs/troubleshooting.md): interpreting observed npm warnings and errors |
 | N11–N12 | Snapshot generator (`tools/course-stages.js`), branch/instructor guides: include assignment guide, update every local branch, portable export destination |
 
-### Final results
+### First-pass validation
 
 - `node tools/verify-course.js --install`: all six **revised local branch trees** passed file matching, links, JavaScript examples, cumulative ancestry, fresh locked installs, HTTP status/body checks, and stage-appropriate tests.
 - `npm test` in the revised main working copy: one suite, three passing tests.
@@ -89,3 +91,27 @@ Before edits, `node tools/verify-course.js --remote --install` passed all six fe
 - `git diff --check` passed. No application dependencies were added and the lockfile stayed unchanged.
 
 The revised learning branches were created locally with cumulative first-parent ancestry and the original checkpoint commits retained as ancestors. Original fetched `origin/learn/...` refs remain unchanged. The review and canonical improvements live on `codex/student-walkthrough`. No changes were pushed to GitHub. The Windows installation/PowerShell and browser UI limitations above remain; runtime success on macOS does not resolve those untested paths. A classroom pilot can now collect actual student confusion using the same learning record.
+
+
+## Final resolution: concise instructions, no additional student work
+
+The first pass made the assignment heavier by adding a learning log and repeated evidence prompts. Those additions have been removed. Students keep the original lesson exercises and submit only the existing project files.
+
+| Finding | Final resolution |
+| --- | --- |
+| N1: unclear hand-in | One short submission checklist lists existing files and final run checks. No new report or screenshot requirement. |
+| N2: build versus reference | Retain the existing separate-folder explanation and completed-example labels; remove the repeated new reminders. |
+| N3: showing completion | Keep the lessons' original completion checks; remove all six evidence sections. |
+| N4: JSON fragments | Keep one direct warning in Part 2 and the npm commands that edit settings. |
+| N5: package version drift | Keep `express@5` and `jest@30`, with one short explanation for each. |
+| N6: awkward shared greeting | Keep the corrected greeting consistent across lessons, server, and assertions. |
+| N7: inconsistent missing URL | Use `/missing-page` consistently and explain once that it is deliberately unmatched. |
+| N8: intimidating test setup | Keep the file tree without a learning log, identify supplied setup, and leave its detailed explanation in optional deeper reading. |
+| N9: installation warnings | Replace the long warning discussion with one short paragraph about trying the next step and sharing actual errors. |
+| N10: three or four tests | Require the existing three tests; keep `/hello` and its fourth test optional, without extension paperwork. |
+| N11: branch consistency | Refresh all six local checkpoint trees from the canonical generator. Preserve their history and leave remote refs intact. |
+| N12: platform-specific export path | Keep the portable sibling-folder export command. |
+
+The revision removes 81 lines and adds 16 across student instructions and tooling. No application behavior, dependencies, tests, or original exercises change in this simplification pass. Earlier commit IDs and results above describe the first pass, not the latest local checkpoint tips.
+
+Final simplified version validation: `node tools/verify-course.js --install` passed all six local branches, including fresh installs, documentation links, exact snapshot contents, sequential ancestry, real HTTP responses, and checkpoint tests. `npm test` passed all three final tests. `git diff --check` passed. Latest local checkpoint commits, in order: `97167f4`, `2bb8f3c`, `f53b2bd`, `6c28a9b`, `0505224`, `60a0930`. Nothing was pushed to GitHub.

@@ -19,9 +19,7 @@ Each should print a version number. Do not type a sample output such as `v24...`
 
 ## npm prints warnings during installation
 
-A line marked `npm warn` is different from `npm error`. You may see warnings about a dependency being deprecated, security audit results, or install-script settings. Counts and messages can vary by npm version. Wait for the command prompt to return, then run the lesson's checkpoint command. A warning alone does not demonstrate that installation failed or that the checkpoint is correct.
-
-If installation ends with an error or the checkpoint does not work, save the command and full error text and ask your instructor. Do not approve unfamiliar install scripts or run `npm audit fix --force` just to make your terminal match a screenshot. The reference uses `npm ci` to reproduce its lockfile; the student path adds Express 5 and Jest 30 at their respective lessons.
+Install messages and package counts can vary. If you see `npm warn`, let the command finish, then try the lesson's next step. If you see `npm error` or that step fails, share the command and error text with your instructor before changing packages or install settings.
 
 ## Windows PowerShell says `npm.ps1` cannot run
 

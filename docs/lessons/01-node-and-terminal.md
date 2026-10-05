@@ -128,8 +128,4 @@ Read the first useful line of an error before changing anything. Errors provide 
 
 Your folder contains `index.js`. You can run it and explain the comment, string, working directory, and returned prompt. There is no web server yet: this program prints once and exits.
 
-## Save your checkpoint evidence
-
-Save the original greeting output and your two-line variation in `learning-log.md`. Explain which tool edits the file and which runs it. Keep `index.js` with the original greeting for Part 2. See the [assignment checklist](../assignment.md) for the full learning record.
-
 [Course home](../../README.md) · [Next: Part 2 — Make an npm project](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/02-npm-project.md)

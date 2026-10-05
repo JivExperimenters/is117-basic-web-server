@@ -145,8 +145,4 @@ For an independent variation, add a second print instruction with a message of y
 
 You have `index.js`, `package.json`, `package-lock.json`, and `.gitignore`. `npm start` prints your original greeting and exits. You can identify a script and explain why the lockfile is kept. Express and Jest have not been installed yet.
 
-## Save your checkpoint evidence
-
-Record `npm start` output and explain how it uses `scripts.start`. Your project should contain `index.js`, `package.json`, `package-lock.json`, `.gitignore`, and `learning-log.md`; `node_modules` may still be absent. See the [assignment checklist](../assignment.md) for the full learning record.
-
 [Previous: Part 1](01-node-and-terminal.md) · [Course home](../../README.md) · [Next: Part 3 — Your first web server](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/03-first-server.md)

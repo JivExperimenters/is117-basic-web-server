@@ -19,11 +19,9 @@ Use one part per class session or learning block, with time to type commands, re
 
 Have students build in `is117-web-server`. A separate `is117-reference` clone contains completed checkpoints. Follow the branch guide before switching branches; reference files should support comparison without overwriting student work. `main` contains the complete program and textbook.
 
-## Use the assignment checklist
+## Submission
 
-The [assignment checklist](assignment.md) defines the student learning record and final file set. Before assigning the work, announce your submission destination, due date, and grading policy. Students record predictions, observed results, and short explanations for all six parts. They capture deliberate failures and restore a working final project. The fourth `/hello` test is optional, so three baseline tests or four documented extension tests are both valid final counts.
-
-Assess the student's explanation of requests, route order, status/body assertions, and a failure diagnosis alongside the working code. A passing run of a reference branch alone does not demonstrate that the student completed the build. The [walkthrough notes](https://github.com/kaw393939/is117-basic-web-server/blob/main/note.md) explain the changes made after the simulated student review.
+Use the [submission checklist](assignment.md) for the final project files. Announce the submission destination and deadline; no separate learning log, screenshots, or written report are required by these lessons. The original three tests are required; the fourth `/hello` test is optional.
 
 ## Teach the supplied test setup
 

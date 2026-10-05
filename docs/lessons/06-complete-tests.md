@@ -135,8 +135,6 @@ You started with a JavaScript file that Node could run. You used npm to describe
 
 Before you finish, explain the trip from a client request to a server response, why the server keeps running after `npm start`, why Jest is a development dependency, and how a failed assertion helped you find a mistake.
 
-## Save your checkpoint evidence
-
-Record the three-test passing summary and the Expected/Received values from both deliberate server bugs. Restore the server and rerun before submitting. Three passing tests complete the required work; the optional `/hello` extension gives four. Use the [final hand-in checklist](../assignment.md#final-hand-in). See the [assignment checklist](../assignment.md) for the full learning record.
+Ready to submit? Use the [submission checklist](../assignment.md).
 
 [Return to the course home](../../README.md)

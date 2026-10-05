@@ -12,7 +12,7 @@ Build your own project in a folder named `is117-web-server`. The worked branches
 
 If you want to run the reference code locally, use a separate folder named `is117-reference`. [Setup](docs/setup.md) and [branch navigation](docs/branches.md) explain the difference between the two folders.
 
-Read the [assignment checklist](docs/assignment.md) before starting. Build each part in your own project and keep a short learning record; running a completed reference branch is a comparison step.
+Follow the six lessons in your own project. When finished, use the [submission checklist](docs/assignment.md).
 
 ## The six parts
 
