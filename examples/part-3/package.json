@@ -1,0 +1,17 @@
+{
+  "name": "is117-web-server-part-3",
+  "version": "1.0.0",
+  "description": "The completed Part 3 Express server example.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
