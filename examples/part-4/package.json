@@ -1,0 +1,17 @@
+{
+  "name": "is117-web-server-part-4",
+  "version": "1.0.0",
+  "description": "The completed Part 4 Express routes and status codes example.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

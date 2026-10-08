@@ -4,7 +4,7 @@
 
 [Previous: Part 3](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/03-first-server.md) · [Next: Part 5](https://github.com/kaw393939/is117-basic-web-server/blob/main/docs/lessons/05-first-test.md)
 
-**Completed example branch:** `learn/04-routes-and-status`
+**Completed example:** [`examples/part-4`](../../examples/part-4)
 
 ## What you will build
 
