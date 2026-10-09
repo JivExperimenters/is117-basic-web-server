@@ -10,7 +10,7 @@ In Part 5, you checked the home page with Jest. Now you will check the about pag
 
 The completed project has one server file, one test file, Express as a dependency, and Jest as a development dependency. It is still the small server you built; we are adding ways to check its behavior.
 
-Keep working in your own `is117-web-server` folder. The branch `learn/06-complete-tests` is the finished reference. The [branch guide](../branches.md) explains how to compare it in a separate `is117-reference` folder.
+Keep working in your own `is117-web-server` folder. The completed reference for this part is in [`examples/part-6`](../../examples/part-6). The [branch guide](../branches.md) explains how to run it in a separate `is117-reference` folder.
 
 ## Checkpoint 1: Describe the behavior before writing a test
 
