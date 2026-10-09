@@ -22,7 +22,7 @@ Follow the six lessons in your own project. When finished, use the [submission c
 | [2. An npm project](docs/lessons/02-npm-project.md) | Create `package.json` and an `npm start` command | [learn/02-npm-project](https://github.com/kaw393939/is117-basic-web-server/tree/learn/02-npm-project) | `npm start` runs the same program |
 | [3. Your first web server](docs/lessons/03-first-server.md) | Install Express and answer a browser request | [`examples/part-3`](examples/part-3) | The home page appears at `localhost:3000` |
 | [4. Routes and status codes](docs/lessons/04-routes-and-status.md) | Add `/about` and a helpful missing-page response | [`examples/part-4`](examples/part-4) | Two pages return `200`; a missing page returns `404` |
-| [5. Your first automated test](docs/lessons/05-first-test.md) | Install Jest as a development dependency and test the home page | [learn/05-first-test](https://github.com/kaw393939/is117-basic-web-server/tree/learn/05-first-test) | One HTTP test passes |
+| [5. Your first automated test](docs/lessons/05-first-test.md) | Install Jest as a development dependency and test the home page | [`examples/part-5`](examples/part-5) | One HTTP test passes |
 | [6. Complete the tests](docs/lessons/06-complete-tests.md) | Test the other responses and use a failure to find a bug | [learn/06-complete-tests](https://github.com/kaw393939/is117-basic-web-server/tree/learn/06-complete-tests) | Three HTTP tests pass |
 
 Each part builds on the previous one. Read a small explanation, predict what will happen, try the code, and explain the result before moving on. Each lesson includes a guided task and a small change to try independently.

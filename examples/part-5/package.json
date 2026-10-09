@@ -1,0 +1,21 @@
+{
+  "name": "is117-web-server-part-5",
+  "version": "1.0.0",
+  "description": "The completed Part 5 Express and Jest example.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --runInBand"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
+}
