@@ -10,7 +10,7 @@ You already have three possible responses: the home page, the about page, and a 
 
 An **automated test** is code that checks whether other code behaves as expected. **Jest** is the package that runs our tests and reports the results. Our first test asks two questions: does the home page return status `200`, and does it send the correct text?
 
-Work in your own `is117-web-server` folder. The branch `learn/05-first-test` is the completed reference for this part. If you use a separate `is117-reference` clone, follow the [branch guide](../branches.md) to view it without replacing your own work.
+Work in your own `is117-web-server` folder. The completed reference for this part is in [`examples/part-5`](../../examples/part-5). If you use a separate `is117-reference` clone, follow the [branch guide](../branches.md) to run it without replacing your own work.
 
 ## Checkpoint 1: Add a testing tool
 

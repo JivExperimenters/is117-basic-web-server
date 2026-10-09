@@ -14,7 +14,7 @@ A **repository** is a project tracked by Git. A **branch** is a named version of
 | [learn/02-npm-project](https://github.com/kaw393939/is117-basic-web-server/tree/learn/02-npm-project) | `package.json`, lockfile, and start script | `npm ci`, then `npm start` |
 | [learn/03-first-server](https://github.com/kaw393939/is117-basic-web-server/tree/learn/03-first-server) | Express and a home route | `npm ci`, then `npm start` |
 | [learn/04-routes-and-status](https://github.com/kaw393939/is117-basic-web-server/tree/learn/04-routes-and-status) | `/about` and a final `404` handler | `npm ci`, then `npm start` |
-| [learn/05-first-test](https://github.com/kaw393939/is117-basic-web-server/tree/learn/05-first-test) | Jest, importable app, and one home-page test | `npm ci`, then `npm test`; `npm start` runs the server |
+| [`examples/part-5`](../examples/part-5) | Jest, importable app, and one home-page test | From `examples/part-5`, run `npm ci`, then `npm test`; `npm start` runs the server |
 | [learn/06-complete-tests](https://github.com/kaw393939/is117-basic-web-server/tree/learn/06-complete-tests) | About-page and missing-page tests | `npm ci`, then `npm test`; `npm start` runs the server |
 
 The code on a branch is the **completed example for that part**. To learn by building, follow the lesson in your own `is117-web-server` folder. You can inspect the matching branch in your browser, or keep a separate `is117-reference` clone to run the instructor's example.
@@ -67,16 +67,15 @@ npm start
 
 Visit `http://localhost:3000/` in your browser. To continue, stop the server and repeat the same steps with `learn/04-routes-and-status`.
 
-At Part 5, use:
+For Part 5, move into its example folder and run:
 
 ```bash
-git status
-git switch learn/05-first-test
+cd examples/part-5
 npm ci
 npm test
 ```
 
-Expect **one passing test**. Part 6 uses the same commands with `learn/06-complete-tests`; expect **three passing tests**. Tests start their own temporary server, so you do not need `npm start` first.
+Expect **one passing test**. Run `npm start` in the same folder if you also want to see the server in a browser. Part 6 uses the same branch commands with `learn/06-complete-tests`; expect **three passing tests**. Tests start their own temporary server, so you do not need `npm start` first.
 
 If Git cannot find a learning branch, fetch again. If it still cannot select it automatically, use this form **only when the local branch does not already exist**:
 
